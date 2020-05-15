@@ -14,7 +14,6 @@
 
 package com.linkedin.android.spyglass.ui;
 
-import android.annotation.TargetApi;
 import android.content.ClipData;
 import android.content.ClipDescription;
 import android.content.ClipboardManager;
@@ -49,7 +48,6 @@ import androidx.annotation.IntRange;
 import androidx.annotation.MenuRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import com.linkedin.android.spyglass.R;
 import com.linkedin.android.spyglass.mentions.MentionSpan;
 import com.linkedin.android.spyglass.mentions.MentionSpanConfig;
@@ -60,7 +58,6 @@ import com.linkedin.android.spyglass.tokenization.QueryToken;
 import com.linkedin.android.spyglass.tokenization.interfaces.QueryTokenReceiver;
 import com.linkedin.android.spyglass.tokenization.interfaces.TokenSource;
 import com.linkedin.android.spyglass.tokenization.interfaces.Tokenizer;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -202,7 +199,7 @@ public class MentionsEditText extends EditText implements TokenSource {
 
         String tokenString = text.subSequence(start, end).toString();
         char firstChar = tokenString.charAt(0);
-        boolean isExplicit = mTokenizer.isExplicitChar(tokenString.charAt(0));
+        boolean isExplicit = mTokenizer.isExplicitChar(firstChar);
         return (isExplicit ? new QueryToken(tokenString, firstChar) : new QueryToken(tokenString));
     }
 
